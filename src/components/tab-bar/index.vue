@@ -5,7 +5,7 @@
           tag="li"
           v-for="item of tabbar"
            :key="item.path"
-          :to="item.path"
+           :to="item.path"
         >
           <i class="iconfont" v-html="item.icon"></i>
           <span>{{item.title}}</span>
@@ -14,11 +14,18 @@
 </template>
 
 <script>
+import routes from '@/router/routes'
 export default {
   name: 'TabBar',
-  props: {
-    tabbar: {
-      value: 'tabbar',
+  computed: {
+    tabbar() {
+      return routes
+        .filter(cur => cur.meta?.isTabBar)
+        .map(({ path, meta: { title, icon } }) => ({
+          path,
+          title,
+          icon,
+        }))
     },
   },
 }
