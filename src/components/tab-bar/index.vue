@@ -20,7 +20,7 @@ export default {
   computed: {
     tabbar() {
       return routes
-        .filter(cur => cur.meta?.isTabBar)
+        .filter(cur => cur.meta.isTabBar)
         .map(({ path, meta: { title, icon } }) => ({
           path,
           title,

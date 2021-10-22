@@ -1,28 +1,17 @@
 <template>
     <div class="search-bar">
-      <div>&lt;返回</div>
-      <input type="text" placeholder="海狗丸">
+      <van-search  placeholder="搜索商品，发现更多优选" />
     </div>
 </template>
 
 <script>
-import routes from '@/router/routes'
 export default {
   name: 'SearchBar',
-  created() {
-    this.mes = routes[0].mess.test
-  },
 }
 </script>
 
 <style lang="less" scoped>
-  .search-bar{
-    display: flex;
-    div{
-      width: 80px;
-    }
-    input{
-      width: 200px;
-    }
+  /deep/.van-search__content van-search__content--square{
+    background-color: #eee !important;
   }
 </style>

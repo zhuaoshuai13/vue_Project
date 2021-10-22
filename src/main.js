@@ -5,6 +5,7 @@ import store from './store'
 import './utils/vant-import'
 import 'amfe-flexible'
 import './utils/flexible'
+import '@/filters'
 Vue.config.productionTip = false
 
 new Vue({

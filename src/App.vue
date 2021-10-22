@@ -6,7 +6,7 @@
     <main>
       <router-view/>
     </main>
-    <footer>
+    <footer v-show="this.$route.meta.footer">
       <router-view name="footer"/>
     </footer>
   </div>
@@ -31,8 +31,9 @@ export default {
   }
   main{
     flex: 1;
+    overflow-x: hidden;
   }
   footer{
-    height: 100px;
+    height: 79px;
   }
 </style>

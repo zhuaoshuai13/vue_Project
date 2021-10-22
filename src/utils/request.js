@@ -7,18 +7,15 @@ const service = axios.create({
 })
 // 请求拦截
 service.interceptors.request.use(config => {
-  console.log('请求拦截')
   Toast.loading({
     message: '加载中',
     duration: 0,
   })
   config.headers.token = 'abcdefghijklmn'
-  config.headers['x-platform'] = 'pc'
   return config
 })
 // 响应拦截
 service.interceptors.response.use((response) => {
-  console.log('响应拦截', response)
   Toast.clear()
   if (response.status >= 200 && response.status < 300) {
     const { code, data } = response.data

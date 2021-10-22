@@ -11,9 +11,7 @@ import TabBar from '@/components/tab-bar'
 const routes = [{
   path: '/',
   redirect: '/home',
-  mess: {
-    test: '测试文字',
-  },
+  meta: {},
 },
 {
   path: '/home',
@@ -26,6 +24,7 @@ const routes = [{
     title: '首页',
     icon: '&#xe601;',
     isTabBar: true,
+    footer: true,
   },
 },
 {
@@ -38,11 +37,13 @@ const routes = [{
     title: '分类',
     icon: '&#xe610;',
     isTabBar: true,
+    footer: false,
   },
 },
 {
   path: '/confirm',
   components: Confirm,
+  meta: {},
 },
 {
   path: '/cart',
@@ -55,6 +56,7 @@ const routes = [{
     title: '购物车',
     icon: '&#xe603;',
     isTabBar: true,
+    footer: true,
   },
 },
 {
@@ -75,11 +77,13 @@ const routes = [{
     title: '我的',
     icon: '&#xe604;',
     isTabBar: true,
+    footer: true,
   },
 },
 {
   path: '/login',
   component: Login,
+  meta: {},
 },
 ]
 export default routes
