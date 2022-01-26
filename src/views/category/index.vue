@@ -22,7 +22,6 @@ export default {
     getTab()
       .then(data => {
         this.list = data.list.slice(1)
-        console.log(this.list)
       })
   },
 }
@@ -40,6 +39,7 @@ export default {
       flex-direction: column;
       div{
         margin-top: 15px;
+        text-align: center;
       }
     }
     .right{

@@ -39,7 +39,11 @@
           finished-text="没有更多了"
           @load="onLoad"
       >
-        <div class="bk" v-for="item in list" :key="item.id">
+        <div class="bk"
+             v-for="item in list"
+             :key="item.id"
+             @click="jump(item.id)"
+             >
           <div class="bkimg">
             <img :src="item.image" alt="">
           </div>
@@ -50,7 +54,11 @@
             <div class="pri">劵后￥<span>{{item.price}}</span>&nbsp;&nbsp;&nbsp;<del>{{item.originPrice}}</del></div>
             <div class="month">
               <van-tag plain type="danger" v-if="item.couponValue">{{item.couponValue}}</van-tag>
-            <span>月销{{item.saleNum | saleNum}}</span></div>
+              <span>月销{{item.saleNum | saleNum}}
+              <van-icon name="shopping-cart-o"
+              :style="{color: 'red', fontSize: '18px'}"
+              @click.stop="addCart(item)"
+              /></span></div>
           </div>
         </div>
       </van-list>
@@ -81,6 +89,18 @@ export default {
           this.nextIndex = data.nextIndex
           this.finished = data.isEnd
         })
+    },
+    addCart({ id, image, title }) {
+      const mess = {
+        id,
+        image,
+        title,
+        num: 1,
+      }
+      this.$store.commit('addCart', mess)
+    },
+    jump(id) {
+      this.$router.push('/detail?id=' + id)
     },
   },
   created() {
@@ -179,7 +199,7 @@ export default {
           background-color: violet;
           display: inline;
           border-radius: 10px;
-          margin-left: 25px;
+          margin-left: 20px;
         }
       }
     }

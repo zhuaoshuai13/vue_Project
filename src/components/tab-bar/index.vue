@@ -60,8 +60,8 @@ export default {
       display: block;
       text-align: center;
     }
-    .router-link-exact-active, .router-link-active {
-    color: #d81e06;
+    .router-link-exact-active .router-link-active {
+       color: #d81e06;
   }
   }
 </style>

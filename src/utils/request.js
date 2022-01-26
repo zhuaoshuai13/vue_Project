@@ -3,7 +3,7 @@ import { Toast } from 'vant'
 
 const service = axios.create({
   baseURL: 'http://www.xiongmaoyouxuan.com',
-  timeout: 3000,
+  timeout: 10000,
 })
 // 请求拦截
 service.interceptors.request.use(config => {
